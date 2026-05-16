@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:26-alpine3.22
 
 WORKDIR /app
 
@@ -7,9 +7,6 @@ RUN npm install
 
 COPY . .
 
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-USER appuser
-
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
